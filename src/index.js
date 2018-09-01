@@ -8,15 +8,13 @@ import bowtie from "./bowtie";
 
 var pattern = new freesewing.Pattern({ version: version, ...config })
 	.with( pluginBundle );
-	
-	
 
 pattern.draft = function() {
-  if(this.needs(['bowtie'])) this.parts.bowtie = this.draftBowtie(new pattern.Part());
+  if(this.needs(['bowtie'])) this.parts.bowtie = this.draftBowtie( new pattern.Part() );
 
   return pattern;
 };
 
-pattern.draftBowtie = part => bowtie.draft(part);
+pattern.draftBowtie = part => bowtie.draft( part );
 
 export default pattern;
